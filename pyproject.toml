@@ -4,7 +4,7 @@ description = "Image Generation with built in face detailer"
 version = "1.0.1"
 
 [project.urls]
-Repository = "https://github.com/SeppoUK/ComfyNodes"
+Repository = "https://github.com/SeppoUK/God-Mode-Node"
 
 [tool.comfy]
 PublisherId = "speepdev" # Found on your Comfy Registry profile
