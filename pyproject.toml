@@ -1,7 +1,7 @@
 [project]
 name = "GodModeInfinity" # No spaces allowed, use dashes
 description = "Image Generation with built in face detailer"
-version = "1.0.0"
+version = "1.0.1"
 
 [project.urls]
 Repository = "https://github.com/SeppoUK/ComfyNodes"
