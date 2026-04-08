@@ -1,4 +1,3 @@
-ComfyUI GodModeInfinity
 GodModeInfinity is an ultimate, all-in-one generation node for ComfyUI. It condenses an entire complex image generation workflow—including base generation, hires fixing, LoRA loading, color correction, and automated face detailing—into a single, easy-to-use node.
 
 Whether you are looking to declutter your workspace or want a powerful "plug-and-play" solution for high-quality character generation, GodModeInfinity handles the heavy lifting while still giving you access to the models and outputs for downstream piping.
