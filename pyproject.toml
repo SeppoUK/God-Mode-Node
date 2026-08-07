@@ -1,0 +1,24 @@
+[project]
+name = "GodModeInfinity"
+description = "Ultimate all-in-one image generation node with built-in face detailer, hires fix, and color correction"
+version = "1.1.0"
+requires-python = ">=3.9"
+
+[project.urls]
+Repository = "https://github.com/SeppoUK/God-Mode-Node"
+
+[tool.comfy]
+PublisherId = "speepdev"
+DisplayName = "God Mode Node"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
