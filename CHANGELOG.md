@@ -1,15 +1,10 @@
 # Changelog
 
-<<<<<<< HEAD
-All notable changes to the **GodModeInfinity** project will be documented in this file.
-=======
 All notable changes to the GodModeInfinity project will be documented in this file.
->>>>>>> ec85893d01a47c89c627622f8e2c562e209706cf
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<<<<<<< HEAD
 ---
 
 ## [Unreleased]
@@ -17,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2026-08-07
 
 ### Added
-- **Refactored Code Structure**: 
+- **Refactored Code Structure**:
   - Split `execute` method into smaller, modular methods (`_load_models`, `_apply_lora`, `_generate_base`, etc.) for better maintainability.
   - Added constants for magic strings (`ENABLED`, `DISABLED`, `NONE`) and FaceDetailer defaults.
 - **Enhanced Input Validation**:
@@ -55,19 +50,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Face fix failures now log errors and return the original image with a `False` success flag.
 - **Input Sanitization**:
   - Added `_sanitize_path` to prevent path traversal in file inputs.
-=======
-## [Unreleased]
+- **Merge Conflicts**:
+  - Resolved all merge conflict markers in `god_mode_infinity.py`, `__init__.py`, and `CHANGELOG.md`.
+  - Fixed `torch.cuda.empty_cache()` to only run when CUDA is available (CPU-safe).
+  - Fixed `sam_mask_hint_use_negative` to be a boolean instead of the string `"False"`.
+
+### Deprecated
+- None
+
+### Removed
+- None
+
+---
 
 ## [1.1.0] - 2026-08-06
 
 ### Added
-- **Session Tracking System**: Comprehensive usage statistics tracking including:
+- Session Tracking System: Comprehensive usage statistics tracking including:
   - Total runs and successful/failed runs
   - Average generation duration in milliseconds
   - Face fix success/failure counts
   - Persistent statistics across node instances
-- **Progress Callbacks**: Optional `progress_callback` input for real-time progress tracking during long-running generations
-- **Input Validation**: Enhanced parameter validation with explicit min/max bounds:
+- Progress Callbacks: Optional `progress_callback` input for real-time progress tracking during long-running generations
+- Input Validation: Enhanced parameter validation with explicit min/max bounds:
   - Steps: 1-1000 (was unbounded)
   - CFG: 0.1-20.0 (was unbounded)
   - Denoise: 0.0-1.0 (was unbounded)
@@ -76,67 +81,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Brightness/Contrast: 0.0-2.5 (was 0.0-2.0)
   - Width/Height: 64-4096 (was unbounded)
   - LoRA strength: -2.0 to 2.0 (was unbounded)
-- **Type Hints**: Comprehensive type annotations throughout the codebase for better IDE support and code clarity
-- **Comprehensive Docstrings**: Full documentation for class, methods, and key variables
-- **Logging System**: Replaced all `print()` statements with proper Python logging:
+- Type Hints: Comprehensive type annotations throughout the codebase for better IDE support and code clarity
+- Comprehensive Docstrings: Full documentation for class, methods, and key variables
+- Logging System: Replaced all `print()` statements with proper Python logging:
   - Module-level logger configuration
   - Structured logging for generation events
   - Error logging with context
   - Warning logging for non-critical issues
-- **Default Prompt Improvements**: Enhanced default prompts:
+- Default Prompt Improvements: Enhanced default prompts:
   - Positive: "1girl, fashion photography, professional lighting" (added lighting detail)
   - Negative: "blurry, low quality, distorted, deformed" (added deformed)
-- **Face Model Default**: Added "None" as default option for face_model to prevent errors when face fix is disabled
-- **Aspect Ratio Constants**: Extracted aspect ratio mappings to class constant `ASPECT_RATIOS` for better maintainability
-- **Error Handling**: Improved exception handling with detailed error messages and graceful fallbacks
+- Face Model Default: Added "None" as default option for face_model to prevent errors when face fix is disabled
+- Aspect Ratio Constants: Extracted aspect ratio mappings to class constant `ASPECT_RATIOS` for better maintainability
+- Error Handling: Improved exception handling with detailed error messages and graceful fallbacks
 
 ### Changed
-- **Code Structure**: Refactored `execute()` method into well-organized sections with clear comments
-- **Parameter Defaults**: Adjusted several default values for better out-of-box experience:
+- Code Structure: Refactored `execute()` method into well-organized sections with clear comments
+- Parameter Defaults: Adjusted several default values for better out-of-box experience:
   - Upscale by: 2.0 (was 1.5)
   - Face model: "None" (was first available model)
-- **Cache Management**: Optimized memory management with strategic `soft_empty_cache()` calls
-- **Return Values**: Maintained backward compatibility while adding new functionality
-- **Category**: Changed from "GodMode/Infinity" to "GodMode" for better organization
->>>>>>> ec85893d01a47c89c627622f8e2c562e209706cf
-
-### Deprecated
-- None
-
-### Removed
-<<<<<<< HEAD
-- None
-
----
-
-## [1.1.0] - 2026-08-06
-
-### Added
-- Session Tracking System: Comprehensive usage statistics tracking.
-- Progress Callbacks: Optional `progress_callback` input for real-time progress tracking.
-- Input Validation: Enhanced parameter validation with explicit min/max bounds.
-- Type Hints: Comprehensive type annotations throughout the codebase.
-- Comprehensive Docstrings: Full documentation for class, methods, and key variables.
-- Logging System: Replaced all `print()` statements with proper Python logging.
-
-### Changed
-- Code Structure: Refactored `execute()` method into well-organized sections.
-- Parameter Defaults: Adjusted several default values for better out-of-box experience.
-- Cache Management: Optimized memory management with strategic `soft_empty_cache()` calls.
+- Cache Management: Optimized memory management with strategic `soft_empty_cache()` calls
+- Return Values: Maintained backward compatibility while adding new functionality
+- Category: Changed from "GodMode/Infinity" to "GodMode" for better organization
 
 ### Fixed
-- Face Fix Error Handling: Added try/except block to prevent crashes.
-- Input Validation: Fixed potential issues with out-of-range parameter values.
-
----
-=======
-- Raw `print()` statements (replaced with logging)
-- Unbounded parameter ranges
-
-### Fixed
-- **Face Fix Error Handling**: Added try/except block to prevent crashes when FaceDetailer fails
-- **Input Validation**: Fixed potential issues with out-of-range parameter values
-- **Default Behavior**: Fixed face_model default to prevent unexpected behavior when face fix is disabled
+- Face Fix Error Handling: Added try/except block to prevent crashes when FaceDetailer fails
+- Input Validation: Fixed potential issues with out-of-range parameter values
+- Default Behavior: Fixed face_model default to prevent unexpected behavior when face fix is disabled
 
 ### Security
 - Added input validation to prevent potential issues with extreme parameter values
@@ -145,12 +116,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated repository URL in pyproject.toml
->>>>>>> ec85893d01a47c89c627622f8e2c562e209706cf
 
 ## [1.0.0] - 2026-04-08
 
 ### Added
-<<<<<<< HEAD
 - Initial release of GodModeInfinity node.
 - All-in-one image generation workflow.
 - Aspect ratio presets (1:1, 2:3, 3:2, 9:16, 16:9).
@@ -176,22 +145,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **CFG**: 6.0-8.0 for balanced quality/speed (range: 0.1-20.0).
 - **Upscale by**: 2.0 for good detail addition (range: 1.0-8.0).
 - **Face denoise**: 0.6 for natural-looking faces (range: 0.0-1.5).
-=======
-- Initial release of GodModeInfinity node
-- All-in-one image generation workflow
-- Aspect ratio presets (1:1, 2:3, 3:2, 9:16, 16:9)
-- Built-in hires fix with latent upscaling
-- Automated face detailing with Ultralytics YOLO
-- Color correction (brightness/contrast)
-- Before/after comparison output
-- Flexible routing with pass-through model/clip/vae outputs
-- Optional VAE and CLIP inputs for custom model routing
-- LoRA loading support
-- Multiple return types for downstream piping
-
-### Notes
-- First public release
-- Requires ComfyUI-Impact-Pack for face detailing features
 
 ---
 
@@ -199,6 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.2.0 | 2026-08-07 | Merge conflict resolution, CPU-safe CUDA calls, boolean type fix |
 | 1.1.0 | 2026-08-06 | Major refactor: logging, validation, session tracking, progress callbacks |
 | 1.0.1 | 2026-04-08 | Repository URL update |
 | 1.0.0 | 2026-04-08 | Initial release |
@@ -217,10 +171,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 4. **Validation**: Enjoy safer parameter ranges that prevent invalid configurations
 
 ### Recommended Settings
-- **Steps**: 35-50 for most use cases (range: 1-1000)
-- **CFG**: 6.0-8.0 for balanced quality/speed (range: 0.1-20.0)
-- **Upscale by**: 2.0 for good detail addition (range: 1.0-8.0)
-- **Face denoise**: 0.6 for natural-looking faces (range: 0.0-1.5)
+- **Steps**: 35-50 for most use cases (range: 1-1000).
+- **CFG**: 6.0-8.0 for balanced quality/speed (range: 0.1-20.0).
+- **Upscale by**: 2.0 for good detail addition (range: 1.0-8.0).
+- **Face denoise**: 0.6 for natural-looking faces (range: 0.0-1.5).
 
 ---
 
@@ -241,4 +195,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Potential for additional aspect ratio presets
 - Possible integration with more face detection models
 - Enhanced progress reporting options
->>>>>>> ec85893d01a47c89c627622f8e2c562e209706cf
